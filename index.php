@@ -56,11 +56,49 @@
           <h4 class="modal-title">Enregistrez une transaction</h4>
         </div>
         <div class="modal-body">
-          <p>Mon formulaire</p>
+        <form method="POST" action="#">
+
+        <div class="mb-3">
+            <input type="date" class="form-control" id="date" name="date">
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Crédit
+  </label>
+
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+    Débit
+  </label>
+</div>
+
+<div class="input-group mb-3">
+  <select class="form-select" id="inputGroupSelect01">
+    <option selected>Catégories</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+</div>
+
+<div class="input-group mb-3">
+  <select class="form-select" id="inputGroupSelect01">
+    <option selected>Mode de paiement</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+</div>
+
+<div class="mb-3">
+    <input type="number" name="montant" placeholder="Montant">
+</div>
+
+  <button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>
         </div>
+     
       </div>
       
     </div>
