@@ -42,11 +42,9 @@
 </div>
 
 
-<!-- Modal -->
-<h2>Modal Example</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open</button>
 
+  <!-- Modal -->
+  <div class="container">
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -55,10 +53,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">Enregistrez une transaction</h4>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
+          <p>Mon formulaire</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -75,15 +73,11 @@
   </div>
   <footer class="footer">
     <div id="center">
-    <button id="add" type="button">+</button>
+    <button id="add" type="button"  data-toggle="modal" data-target="#myModal">+</button>
     </div>
     
   </footer>
 </body>
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </html>
