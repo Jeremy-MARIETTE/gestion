@@ -22,13 +22,13 @@ if(isset($_POST['date'])){
             die('Erreur : ' . $e->getMessage());
     }
    
-    $data =[
-        'date'=>$date,
-        'montant'=>$montant
-    ];
+    //faire une classe
 
-    $stmt = $db->prepare("INSERT INTO transactions (dates,montant,valideTransaction,id_categorie,id_modePaiement) VALUES (?,?,?,?,?)");
-    $stmt->execute(array($formatDate,$montant,1,$categorie,$mode));
+    //Faire un select des données dans comptabilite, modespaiement et categories
+    //Faire un foreach dans le formulaire pour afficher les données
+
+    $stmt = $db->prepare("INSERT INTO transactions (dates,montant,valideTransaction,id_categorie,id_modePaiement,types) VALUES (?,?,?,?,?,?)");
+    $stmt->execute(array($formatDate,$montant,1,$categorie,$mode,$operation));
 
 
 }

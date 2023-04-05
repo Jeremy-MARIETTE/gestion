@@ -63,12 +63,12 @@
             <input type="date" class="form-control" id="date" name="date">
         </div>
         <div class="form-check">
-  <input class="form-check-input" type="radio" name="operation" value="credit" id="flexRadioDefault1">
+  <input class="form-check-input" type="radio" name="operation" value="1" id="flexRadioDefault1">
   <label class="form-check-label" for="flexRadioDefault1">
     Crédit
   </label>
 
-  <input class="form-check-input" type="radio" name="operation" value="debit" checked>
+  <input class="form-check-input" type="radio" name="operation" value="2" checked>
   <label class="form-check-label" for="flexRadioDefault2">
     Débit
   </label>
