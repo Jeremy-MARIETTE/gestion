@@ -7,7 +7,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
+<?php include('formulaire.php'); ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -56,25 +56,26 @@
           <h4 class="modal-title">Enregistrez une transaction</h4>
         </div>
         <div class="modal-body">
-        <form method="POST" action="#">
+
+        <form method="POST" action="formulaire.php">
 
         <div class="mb-3">
             <input type="date" class="form-control" id="date" name="date">
         </div>
         <div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <input class="form-check-input" type="radio" name="operation" value="credit" id="flexRadioDefault1">
   <label class="form-check-label" for="flexRadioDefault1">
     Crédit
   </label>
 
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <input class="form-check-input" type="radio" name="operation" value="debit" checked>
   <label class="form-check-label" for="flexRadioDefault2">
     Débit
   </label>
 </div>
 
 <div class="input-group mb-3">
-  <select class="form-select" id="inputGroupSelect01">
+  <select class="form-select" id="inputGroupSelect01" name="categorie">
     <option selected>Catégories</option>
     <option value="1">One</option>
     <option value="2">Two</option>
@@ -83,7 +84,7 @@
 </div>
 
 <div class="input-group mb-3">
-  <select class="form-select" id="inputGroupSelect01">
+  <select class="form-select" id="inputGroupSelect01" name="mode">
     <option selected>Mode de paiement</option>
     <option value="1">One</option>
     <option value="2">Two</option>
