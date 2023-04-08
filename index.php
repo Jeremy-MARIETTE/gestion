@@ -1,3 +1,7 @@
+<?php
+ $db = new PDO('mysql:host=localhost;dbname=gestion;charset=utf8', 'root', '');
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,9 +16,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Gestion</title>
+
+
 </head>
 <body>
 <div class="content">
+
+
+
 
 <div class="card text-center">
   <div class="card-header">
@@ -77,18 +86,28 @@
 <div class="input-group mb-3">
   <select class="form-select" id="inputGroupSelect01" name="categorie">
     <option selected>Catégories</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+    <?php
+    $sql = 'SELECT * FROM categorie';
+    foreach ($db->query($sql) as $row) {
+      ?>
+       <option value="<?php echo $row['id_categorie']?>"><?php echo $row['categorie']?></option>
+      <?php
+    }
+    ?>
   </select>
 </div>
 
 <div class="input-group mb-3">
   <select class="form-select" id="inputGroupSelect01" name="mode">
     <option selected>Mode de paiement</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+    <?php
+    $sql = 'SELECT * FROM modespaiement';
+    foreach ($db->query($sql) as $row1) {
+      ?>
+       <option value="<?php echo $row1['id_modePaiement']?>"><?php echo $row1['mode_Paiement']?></option>
+      <?php
+    }
+    ?>
   </select>
 </div>
 
