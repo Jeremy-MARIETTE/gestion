@@ -1,5 +1,10 @@
 <?php
- $db = new PDO('mysql:host=localhost;dbname=gestion;charset=utf8', 'root', '');
+require_once('budget.php');
+//$db = new PDO('mysql:host=localhost;dbname=gestion;charset=utf8', 'root', '');
+ 
+$categories = new Budget();
+var_dump($categories);
+
 ?>
 
 <!DOCTYPE html>
@@ -87,12 +92,8 @@
   <select class="form-select" id="inputGroupSelect01" name="categorie">
     <option selected>Catégories</option>
     <?php
-    $sql = 'SELECT * FROM categorie';
-    foreach ($db->query($sql) as $row) {
-      ?>
-       <option value="<?php echo $row['id_categorie']?>"><?php echo $row['categorie']?></option>
-      <?php
-    }
+    
+    $categories->categories();
     ?>
   </select>
 </div>
@@ -101,12 +102,7 @@
   <select class="form-select" id="inputGroupSelect01" name="mode">
     <option selected>Mode de paiement</option>
     <?php
-    $sql = 'SELECT * FROM modespaiement';
-    foreach ($db->query($sql) as $row1) {
-      ?>
-       <option value="<?php echo $row1['id_modePaiement']?>"><?php echo $row1['mode_Paiement']?></option>
-      <?php
-    }
+  $categories->modesPaiement();
     ?>
   </select>
 </div>

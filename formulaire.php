@@ -1,4 +1,24 @@
 <?php
+class Formulaire{
+
+    public function __construct(){
+       
+    }
+
+
+    function categories(){
+
+        $sql = 'SELECT * FROM categorie';
+        foreach ($db->query($sql) as $row) {
+          ?>
+           <option value="<?php echo $row['id_categorie']?>"><?php echo $row['categorie']?></option>
+          <?php
+        }
+
+    }
+
+   
+}
 
 if(isset($_POST['date'])){
   
@@ -30,14 +50,8 @@ if(isset($_POST['date'])){
     $stmt = $db->prepare("INSERT INTO transactions (dates,montant,valideTransaction,id_categorie,id_modePaiement,types) VALUES (?,?,?,?,?,?)");
     $stmt->execute(array($formatDate,$montant,1,$categorie,$mode,$operation));
 
+    header('Location: http://localhost/gestion/');
 
 }
-
-
-
-
-
-
-
 
 ?>
