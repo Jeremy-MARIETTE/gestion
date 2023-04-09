@@ -1,10 +1,6 @@
 <?php
-require_once('budget.php');
-//$db = new PDO('mysql:host=localhost;dbname=gestion;charset=utf8', 'root', '');
- 
+require_once('budget.php'); 
 $categories = new Budget();
-var_dump($categories);
-
 ?>
 
 <!DOCTYPE html>
@@ -42,8 +38,11 @@ var_dump($categories);
     </ul>
   </div>
   <div class="card-body">
-    <h5 class="card-title">Vue d'ensemble du mois de  : Nom du mois</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <h2 class="card-title">Vue d'ensemble du compte</h2>
+    <p> Total crédit : <?php $categories->solde_credit();?> €</p>
+    <p> Total débit : <?php $categories->solde_debit(); ?> €</p>
+
+    <?php $categories->solde(); ?>
     
   </div>
 </div>
@@ -51,8 +50,8 @@ var_dump($categories);
 <hr>
 <!--Card des dépenses-->
 <div class="card text-center">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>   
+    <h2 class="card-title">Liste des opérations</h2>
+    <?php $categories->operations(); ?>  
 </div>
 
 
@@ -91,10 +90,7 @@ var_dump($categories);
 <div class="input-group mb-3">
   <select class="form-select" id="inputGroupSelect01" name="categorie">
     <option selected>Catégories</option>
-    <?php
-    
-    $categories->categories();
-    ?>
+    <?php $categories->categories(); ?>
   </select>
 </div>
 

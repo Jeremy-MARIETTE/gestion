@@ -3,6 +3,7 @@
   }
 .footer {
     height: 50px;
+    background-color: red;
   }
 button{
     border-radius: 50%;

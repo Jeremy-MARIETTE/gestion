@@ -1,24 +1,4 @@
 <?php
-class Formulaire{
-
-    public function __construct(){
-       
-    }
-
-
-    function categories(){
-
-        $sql = 'SELECT * FROM categorie';
-        foreach ($db->query($sql) as $row) {
-          ?>
-           <option value="<?php echo $row['id_categorie']?>"><?php echo $row['categorie']?></option>
-          <?php
-        }
-
-    }
-
-   
-}
 
 if(isset($_POST['date'])){
   
@@ -30,9 +10,6 @@ if(isset($_POST['date'])){
 
     $formatDate = date("Y-m-d",strtotime($date));
 
-   // var_dump('Date formatée : '.$formatDate);
-   // var_dump('Formulaire.php'.$date.' '.$operation.' '.$categorie.' '.$mode.' '.$montant);
-
     try
     {
         $db = new PDO('mysql:host=localhost;dbname=gestion;charset=utf8', 'root', '');
@@ -42,11 +19,6 @@ if(isset($_POST['date'])){
             die('Erreur : ' . $e->getMessage());
     }
    
-    //faire une classe
-
-    //Faire un select des données dans comptabilite, modespaiement et categories
-    //Faire un foreach dans le formulaire pour afficher les données
-
     $stmt = $db->prepare("INSERT INTO transactions (dates,montant,valideTransaction,id_categorie,id_modePaiement,types) VALUES (?,?,?,?,?,?)");
     $stmt->execute(array($formatDate,$montant,1,$categorie,$mode,$operation));
 
