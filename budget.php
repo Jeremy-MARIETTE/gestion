@@ -48,7 +48,10 @@ class Budget{
            <div class="ms-2 me-auto">
 
            <div class="fw-bold"><h3><?php echo $row1['categorie']; ?></h3></div>
-            <?php   echo "Le : ".$row1['dates'];  ?>
+            <?php 
+            $format = strtotime($row1['dates']);
+            echo "Le : ".date('d.m.Y', $format);
+            ?>
 
 
             <span <?php if($row1['id_comptabilite'] ==1){ 

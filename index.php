@@ -79,12 +79,12 @@ $categories = new Budget();
             <input type="date" class="form-control" id="date" name="date">
         </div>
         <div class="form-check mb-6" >
-  <input class="form-check-input" style="width:50%" type="radio" name="operation" value="1" id="flexRadioDefault1">
+  <input class="form-check-input credit"  type="radio" name="operation" value="1" id="flexRadioDefault1">
   <label class="form-check-label" for="flexRadioDefault1">
     Crédit
   </label>
 
-  <input class="form-check-input mb-6" type="radio" name="operation" value="2" checked>
+  <input class="form-check-input mb-6 debit" type="radio" name="operation" value="2" id="flexRadioDefault2" checked>
   <label class="form-check-label" for="flexRadioDefault2">
     Débit
   </label>
