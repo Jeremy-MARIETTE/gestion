@@ -10,12 +10,13 @@ $categories = new Budget();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Latest compiled and minified CSS -->
+    
+
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/navbar-bottom/">
 <?php include('formulaire.php'); ?>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
     <title>Gestion</title>
 
 
@@ -49,9 +50,11 @@ $categories = new Budget();
 
 <hr>
 <!--Card des dépenses-->
+<div class="container-fluid">
 <div class="card text-center">
     <h2 class="card-title">Liste des opérations</h2>
     <?php $categories->operations(); ?>  
+</div>
 </div>
 
 
@@ -66,7 +69,7 @@ $categories = new Budget();
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Enregistrez une transaction</h4>
+          <h4 class="modal-title text-center">Enregistrez une transaction</h4>
         </div>
         <div class="modal-body">
 
@@ -75,27 +78,27 @@ $categories = new Budget();
         <div class="mb-3">
             <input type="date" class="form-control" id="date" name="date">
         </div>
-        <div class="form-check">
-  <input class="form-check-input" type="radio" name="operation" value="1" id="flexRadioDefault1">
+        <div class="form-check mb-6" >
+  <input class="form-check-input" style="width:50%" type="radio" name="operation" value="1" id="flexRadioDefault1">
   <label class="form-check-label" for="flexRadioDefault1">
     Crédit
   </label>
 
-  <input class="form-check-input" type="radio" name="operation" value="2" checked>
+  <input class="form-check-input mb-6" type="radio" name="operation" value="2" checked>
   <label class="form-check-label" for="flexRadioDefault2">
     Débit
   </label>
 </div>
 
-<div class="input-group mb-3">
-  <select class="form-select" id="inputGroupSelect01" name="categorie">
-    <option selected>Catégories</option>
+<div class="input-group mb-12">
+  <select class="form-control form-control-lg"  id="inputGroupSelect01" name="categorie">
+    <option selected >Catégories</option>
     <?php $categories->categories(); ?>
   </select>
 </div>
 
-<div class="input-group mb-3">
-  <select class="form-select" id="inputGroupSelect01" name="mode">
+<div class="input-group mb-12">
+  <select class="form-control form-control-lg" id="inputGroupSelect01" name="mode">
     <option selected>Mode de paiement</option>
     <?php
   $categories->modesPaiement();
@@ -103,11 +106,11 @@ $categories = new Budget();
   </select>
 </div>
 
-<div class="mb-3">
-    <input type="number" name="montant" placeholder="Montant">
+<div class="mb-12">
+    <input class="form-control form-control-lg" type="number" name="montant" placeholder="Montant">
 </div>
 
-  <button type="submit" class="btn btn-primary">Enregistrer</button>
+  <button type="submit" style="width:100%; height:40px" class="btn btn-primary">Enregistrer</button>
 </form>
         </div>
      
@@ -120,14 +123,22 @@ $categories = new Budget();
 <!-- modal -->
 
 
-  </div>
-  <footer class="footer">
+
+</body>
+
+
+<footer id="footer">
     <div id="center">
-    <button id="add" type="button"  data-toggle="modal" data-target="#myModal">+</button>
+    <button id="add" type="button"  data-toggle="modal" data-target="#myModal"><i class="fa-solid fa-plus fa-2xl"></i></button>
     </div>
     
   </footer>
-</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 </html>
