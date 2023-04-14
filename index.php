@@ -1,4 +1,5 @@
 <?php
+$bdd = require('connexion.php');
 require_once('budget.php'); 
 $categories = new Budget();
 ?>
@@ -40,10 +41,10 @@ $categories = new Budget();
   </div>
   <div class="card-body">
     <h2 class="card-title">Vue d'ensemble du compte</h2>
-    <p> Total crédit : <?php $categories->solde_credit();?> €</p>
-    <p> Total débit : <?php $categories->solde_debit(); ?> €</p>
+    <p> Total crédit : <?php $categories->solde_credit($bdd);?> €</p>
+    <p> Total débit : <?php $categories->solde_debit($bdd); ?> €</p>
 
-    <?php $categories->solde(); ?>
+    <?php $categories->solde($bdd); ?>
     
   </div>
 </div>
@@ -53,7 +54,7 @@ $categories = new Budget();
 <div class="container-fluid">
 <div class="card text-center">
     <h2 class="card-title">Liste des opérations</h2>
-    <?php $categories->operations(); ?>  
+    <?php $categories->operations($bdd); ?>  
 </div>
 </div>
 
@@ -93,7 +94,7 @@ $categories = new Budget();
 <div class="input-group mb-12">
   <select class="form-control form-control-lg"  id="inputGroupSelect01" name="categorie">
     <option selected >Catégories</option>
-    <?php $categories->categories(); ?>
+    <?php $categories->categories($bdd); ?>
   </select>
 </div>
 
@@ -101,7 +102,7 @@ $categories = new Budget();
   <select class="form-control form-control-lg" id="inputGroupSelect01" name="mode">
     <option selected>Mode de paiement</option>
     <?php
-  $categories->modesPaiement();
+  $categories->modesPaiement($bdd);
     ?>
   </select>
 </div>

@@ -1,15 +1,16 @@
 <?php
+
 class Budget{
 
 
     
     public function __construct(){
-       
+      $db = new PDO('mysql:host=localhost;dbname=gestion;charset=utf8', 'root', '');
     }
 
-    function categories(){
+    function categories($db){
 
-            $db = new PDO('mysql:host=localhost;dbname=gestion;charset=utf8', 'root', '');
+          
         
     
         $sql = 'SELECT * FROM categorie';
@@ -21,9 +22,8 @@ class Budget{
 
     }
 
-    function modesPaiement(){
+    function modesPaiement($db){
 
-        $db = new PDO('mysql:host=localhost;dbname=gestion;charset=utf8', 'root', '');
         $sql = 'SELECT * FROM modespaiement';
         foreach ($db->query($sql) as $row1) {
           ?>
@@ -32,9 +32,9 @@ class Budget{
         }
     }
 
-    function operations(){
+    function operations($db){
 
-        $db = new PDO('mysql:host=localhost;dbname=gestion;charset=utf8', 'root', '');
+      
         $sql = 'SELECT * FROM transactions INNER JOIN categorie ON transactions.id_categorie = categorie.id_categorie
         INNER JOIN comptabilite ON transactions.types = comptabilite.id_comptabilite
         INNER JOIN modespaiement ON transactions.id_modePaiement = modespaiement.id_modePaiement 
@@ -77,9 +77,9 @@ class Budget{
 
     }
 
-    function solde_debit(){
+    function solde_debit($db){
 
-        $db = new PDO('mysql:host=localhost;dbname=gestion;charset=utf8', 'root', '');
+
         $sql = 'SELECT montant FROM transactions WHERE types = 2';
         $total_debit = array();
         foreach ($db->query($sql) as $row1) {
@@ -89,9 +89,8 @@ class Budget{
         echo array_sum($total_debit);
     }
 
-    function solde_credit(){
+    function solde_credit($db){
 
-        $db = new PDO('mysql:host=localhost;dbname=gestion;charset=utf8', 'root', '');
         $sql = 'SELECT montant FROM transactions WHERE types = 1';
         $total_credit = array();
         foreach ($db->query($sql) as $row1) {
@@ -101,9 +100,9 @@ class Budget{
         echo array_sum($total_credit);
     }
 
-    function solde(){
+    function solde($db){
 
-        $db = new PDO('mysql:host=localhost;dbname=gestion;charset=utf8', 'root', '');
+    
         $sql = 'SELECT montant FROM transactions WHERE types = 2';
         $total_debit = array();
         foreach ($db->query($sql) as $row1) {
